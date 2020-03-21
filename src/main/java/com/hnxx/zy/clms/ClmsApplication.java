@@ -8,7 +8,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 /**
  * 项目启动类
  * @Author: fusheng
- * @Data: 2020/3/17 13:09  ---  14:56   完成了项目的基本构建
+ * @Data: 2020/3/17 13:09  --- 2020/3/21 20:30  code-fusheng 完成了项目的基本构建
+ * @Data: 2020/3/21 21:34  --- 2020/3/21 22:21  code-fusheng 完成了 Article 实体类编写
  * @Data: 提交测试
  */
 

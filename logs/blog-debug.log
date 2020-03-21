@@ -248,3 +248,15 @@ Caused by: java.sql.SQLSyntaxErrorException: You have an error in your SQL synta
 2020-03-21 18:45:21.654 DEBUG [http-nio-8080-exec-6]com.hnxx.zy.clms.core.mapper.LogMapper.save.debug:159 -<==    Updates: 1
 2020-03-21 18:54:23.585 DEBUG [restartedMain]com.hnxx.zy.clms.ClmsApplication.logStarting:56 -Running with Spring Boot v2.2.5.RELEASE, Spring v5.2.4.RELEASE
 2020-03-21 21:16:13.682 DEBUG [restartedMain]com.hnxx.zy.clms.ClmsApplication.logStarting:56 -Running with Spring Boot v2.2.5.RELEASE, Spring v5.2.4.RELEASE
+2020-03-21 21:24:11.414 DEBUG [http-nio-8080-exec-1]com.hnxx.zy.clms.core.mapper.XxxMapper.save.debug:159 -==>  Preparing: insert into cl_xx(xx_name) values (?) 
+2020-03-21 21:24:11.517 DEBUG [http-nio-8080-exec-1]com.hnxx.zy.clms.core.mapper.XxxMapper.save.debug:159 -==> Parameters: 测试模型2(String)
+2020-03-21 21:24:11.590 DEBUG [http-nio-8080-exec-1]com.hnxx.zy.clms.core.mapper.XxxMapper.save.debug:159 -<==    Updates: 1
+2020-03-21 21:24:11.791 DEBUG [http-nio-8080-exec-1]com.hnxx.zy.clms.core.mapper.LogMapper.save.debug:159 -==>  Preparing: insert into cl_log( log_url, log_params, log_status, log_message, log_method, log_time, log_result, log_ip ) values ( ?, ?, ?, ?, ?, ?, ?, ? ) 
+2020-03-21 21:24:11.797 DEBUG [http-nio-8080-exec-1]com.hnxx.zy.clms.core.mapper.LogMapper.save.debug:159 -==> Parameters: /xxx/save(String), [Xxx(xxId=null, xxName=测试模型2, createdTime=null, updateTime=null, version=null, isEnabled=null, isDeleted=null)](String), 1(Integer), null, POST(String), 2450(Long), {"code":200,"msg":"保存成功!"}(String), 0:0:0:0:0:0:0:1(String)
+2020-03-21 21:24:11.869 DEBUG [http-nio-8080-exec-1]com.hnxx.zy.clms.core.mapper.LogMapper.save.debug:159 -<==    Updates: 1
+2020-03-21 21:24:19.262 DEBUG [http-nio-8080-exec-9]com.hnxx.zy.clms.core.mapper.XxxMapper.getById.debug:159 -==>  Preparing: select * from cl_xx where xx_id = ? and is_deleted = 0 
+2020-03-21 21:24:19.264 DEBUG [http-nio-8080-exec-9]com.hnxx.zy.clms.core.mapper.XxxMapper.getById.debug:159 -==> Parameters: 1(Integer)
+2020-03-21 21:24:19.365 DEBUG [http-nio-8080-exec-9]com.hnxx.zy.clms.core.mapper.XxxMapper.getById.debug:159 -<==      Total: 0
+2020-03-21 21:24:19.442 DEBUG [http-nio-8080-exec-9]com.hnxx.zy.clms.core.mapper.LogMapper.save.debug:159 -==>  Preparing: insert into cl_log( log_url, log_params, log_status, log_message, log_method, log_time, log_result, log_ip ) values ( ?, ?, ?, ?, ?, ?, ?, ? ) 
+2020-03-21 21:24:19.443 DEBUG [http-nio-8080-exec-9]com.hnxx.zy.clms.core.mapper.LogMapper.save.debug:159 -==> Parameters: /xxx/get/1(String), [1](String), 1(Integer), null, GET(String), 147(Long), {"code":200,"msg":"操作成功！"}(String), 0:0:0:0:0:0:0:1(String)
+2020-03-21 21:24:19.538 DEBUG [http-nio-8080-exec-9]com.hnxx.zy.clms.core.mapper.LogMapper.save.debug:159 -<==    Updates: 1
