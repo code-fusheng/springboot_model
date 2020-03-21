@@ -1,17 +1,17 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : linux175.24.45.179
+ Source Server         : test
  Source Server Type    : MySQL
- Source Server Version : 50729
- Source Host           : 175.24.45.179:3306
+ Source Server Version : 80018
+ Source Host           : localhost:3306
  Source Schema         : clms
 
  Target Server Type    : MySQL
- Target Server Version : 50729
+ Target Server Version : 80018
  File Encoding         : 65001
 
- Date: 21/03/2020 11:43:51
+ Date: 21/03/2020 19:53:25
 */
 
 SET NAMES utf8mb4;
@@ -24,9 +24,9 @@ DROP TABLE IF EXISTS `cl_article`;
 CREATE TABLE `cl_article`  (
   `article_id` int(31) NOT NULL AUTO_INCREMENT COMMENT '文章id编号',
   `article_title` varchar(63) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '文章标题',
-  `article_author` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `article_author` int(11) NOT NULL DEFAULT 0 COMMENT '文章作者',
   `article_image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '文章图片',
-  `article_content` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL COMMENT '文章内容',
+  `article_content` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '文章内容',
   `article_good` int(11) NOT NULL DEFAULT 0 COMMENT '文章点赞量',
   `article_read` int(11) NOT NULL DEFAULT 0 COMMENT '文章阅读量',
   `article_collection` int(11) NOT NULL DEFAULT 0 COMMENT '文章收藏量',
@@ -40,6 +40,34 @@ CREATE TABLE `cl_article`  (
   `version` int(11) NOT NULL DEFAULT 1 COMMENT '乐观锁',
   PRIMARY KEY (`article_id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for cl_collection
+-- ----------------------------
+DROP TABLE IF EXISTS `cl_collection`;
+CREATE TABLE `cl_collection`  (
+  `collection_id` int(11) NOT NULL COMMENT '收藏id',
+  `article_id` int(31) NOT NULL COMMENT '收藏文章id',
+  `user_id` int(11) NOT NULL COMMENT '用户id',
+  `collection_time` datetime(0) NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '收藏时间',
+  PRIMARY KEY (`collection_id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for cl_comment
+-- ----------------------------
+DROP TABLE IF EXISTS `cl_comment`;
+CREATE TABLE `cl_comment`  (
+  `comment_id` int(31) NOT NULL COMMENT '评论id',
+  `comment_content` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '评论内容',
+  `comment_user` int(11) NOT NULL COMMENT '评价人',
+  `comment_article` int(31) NOT NULL COMMENT '评论帖子id',
+  `comment_good` int(11) NOT NULL COMMENT '点赞数',
+  `comment_time` datetime(0) NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '评论时间',
+  `is_enabled` int(1) NOT NULL DEFAULT 1 COMMENT '是否启用,  0否1是 默认1',
+  `is_deleted` int(1) NOT NULL DEFAULT 0 COMMENT '是否删除，0否1是 默认0',
+  PRIMARY KEY (`comment_id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for cl_log
